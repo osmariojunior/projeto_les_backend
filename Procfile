@@ -1,3 +1,1 @@
-web: 
-  cd back-end
-  npm start
+web: npm start
