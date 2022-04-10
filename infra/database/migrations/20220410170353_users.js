@@ -10,7 +10,8 @@ exports.up = (knex) =>
     table.string("email", 255).notNullable();
     table.string("nickname", 255).notNullable();
     table.string("password_hash", 255).notNullable();
-    table.string("password_salt", 255).notNullable();
+    table.dateTime("created_at").notNullable();
+    table.dateTime("updated_at").notNullable();
   });
 
 /**
