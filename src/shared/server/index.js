@@ -1,6 +1,8 @@
 const express = require("express");
-const port = process.env.PORT || 5000;
+require("express-async-errors");
 
+const port = process.env.PORT || 5001;
+const errorHandler = require("./middlewares/error-handler");
 const usersRoutes = require("./routes/users.routes");
 
 const server = express();
@@ -13,6 +15,10 @@ server.get("/", (req, res) => {
   res.send("Hello world");
 });
 
+server.use(errorHandler);
+
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+module.exports = server;

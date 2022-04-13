@@ -1,21 +1,43 @@
 const { createUseCase } = require("../../../use-cases/users/create");
+const { existsUseCase } = require("../../../use-cases/users/exists");
 const knex = require("../../../../infra/database/index");
 const requestSchema = require("./request-schema");
+const ValidationError = require("../../../shared/errors/validation-error");
+const ConflictError = require("../../../shared/errors/conflict");
+const httpStatusCode = require("../../../constants/http-status-codes");
 
-exports.register = async (req, res) => {
+const register = async (req, res) => {
   const validity = await requestSchema.isValid(req.body);
 
   if (!validity) {
-    res.status(400).send();
-    return;
+    throw new ValidationError("Bad Request.");
   }
 
-  try {
-    const user = await createUseCase(knex)(req.body);
-    res.status(200).send(user);
-  } catch (err) {
-    console.log(err);
-    res.status(500).send();
-    throw err;
+  const dep = register.dependencies();
+
+  const nicknameOrEmailAlreadExists = await dep.existsUseCase({
+    nickname: req.body.nickname,
+    email: req.body.email,
+  });
+
+  if (nicknameOrEmailAlreadExists) {
+    throw new ConflictError("Email or nickname already exists.");
   }
+
+  const [user] = await dep.createUseCase(req.body);
+  res.status(httpStatusCode.CREATED).send({
+    name: user.first_name + " " + user.last_name,
+    nickname: user.nickname,
+    email: user.email,
+    id: user.id,
+  });
+};
+
+register.dependencies = () => ({
+  createUseCase: createUseCase(knex),
+  existsUseCase: existsUseCase(knex),
+});
+
+module.exports = {
+  register,
 };
