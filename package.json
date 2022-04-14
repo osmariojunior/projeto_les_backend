@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js",
+    "test": "jest",
     "start": "node src/shared/server/index.js",
     "debug": "nodemon src/shared/server/index.js"
   },

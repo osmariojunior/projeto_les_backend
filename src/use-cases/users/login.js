@@ -12,6 +12,7 @@ exports.loginUseCase =
 
     const verified = await compare(password, user.password_hash);
     if (verified) {
+      delete user.password_hash;
       return user;
     }
     return false;
