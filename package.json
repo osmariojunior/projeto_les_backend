@@ -16,7 +16,7 @@
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^1.0.5",
+    "knex": "^1.0.2",
     "pg": "^8.7.3",
     "yup": "^0.32.11"
   },

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1649903466404" clover="3.2.0">
-  <project timestamp="1649903466405" name="All files">
+<coverage generated="1650716188391" clover="3.2.0">
+  <project timestamp="1650716188391" name="All files">
     <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4" elements="26" coveredelements="26" complexity="0" loc="18" ncloc="18" packages="1" files="2" classes="2"/>
     <file name="create.js" path="/home/felipe/Documentos/Personal/unit/projeto_les/src/use-cases/users/create.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>

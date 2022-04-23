@@ -2,17 +2,17 @@ const { hash, genSalt } = require("bcrypt");
 
 exports.existsUseCase =
   (knex) =>
-  async ({ email, nickname }) => {
+  async ({ id, email, nickname }) => {
     const existence = await knex("users")
       .where({
         email: email,
       })
       .orWhere({
         nickname: nickname,
+      })
+      .orWhere({
+        id: id,
       });
 
-    if (existence && existence.length > 0) {
-      return true;
-    }
-    return false;
+    return existence && existence.length > 0;
   };
