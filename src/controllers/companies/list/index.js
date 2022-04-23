@@ -13,7 +13,10 @@ const list = async (req, res) => {
   const companies = await dep.listCompanies(req.query);
   res.send({
     companies: companies.map((company) => {
-      delete company.created_at, company.updated_at, company.owner_id;
+      delete company.created_at;
+      delete company.updated_at;
+      delete company.owner_id;
+      return company;
     }),
   });
 };

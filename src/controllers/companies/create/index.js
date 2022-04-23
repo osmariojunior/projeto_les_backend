@@ -1,5 +1,7 @@
 const knex = require("../../../../infra/database/index");
 const requestSchema = require("./request-schema");
+const httpStatusCode = require("../../../constants/http-status-codes");
+
 const {
   existsUseCase: userExists,
 } = require("../../../use-cases/users/exists");
@@ -19,16 +21,21 @@ const create = async (req, res) => {
 
   const dep = create.dependencies();
 
-  const userExistence = await dep.userExists(req.identification.user.id);
+  const userExistence = await dep.userExists({
+    id: req.identification.user.id,
+  });
   if (!userExistence) {
     throw new NotFoundError("User Not Found.");
   }
-  const companyExistence = await dep.companyExists(req.body.name);
+  const companyExistence = await dep.companyExists({ name: req.body.name });
   if (companyExistence) {
     throw new ConflictError("Company already exists.");
   }
 
-  const company = await dep.createCompany(req.body);
+  const company = await dep.createCompany({
+    ...req.body,
+    ownerId: req.identification.user.id,
+  });
   res.status(httpStatusCode.CREATED).send({
     name: company.name,
     description: company.description,

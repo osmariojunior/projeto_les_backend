@@ -1,8 +1,8 @@
 module.exports =
-  async (knex) =>
-  ({ name }) => {
+  (knex) =>
+  async ({ name }) => {
     const existence = await knex("companies").where({
-        name,
-      });
-    return existence && existence.length > 0
+      name: name,
+    });
+    return existence && existence.length > 0;
   };

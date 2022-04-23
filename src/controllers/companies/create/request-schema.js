@@ -1,5 +1,5 @@
 const yup = require("yup");
-exports.default = yup.object().shape({
+module.exports = yup.object().shape({
   name: yup.string().required(),
   description: yup.string(),
   country: yup.string().required(),

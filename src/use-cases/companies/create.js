@@ -1,6 +1,6 @@
 module.exports =
-  async (knex) =>
-  ({ name, description, ownerId, country, state, city }) => {
+  (knex) =>
+  async ({ name, description, ownerId, country, state, city }) => {
     return knex("companies")
       .insert({
         name,
