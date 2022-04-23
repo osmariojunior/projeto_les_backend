@@ -1,7 +1,8 @@
 module.exports =
   (knex) =>
-  async ({ id }) => {
+  async ({ id, ownerId }) => {
     return knex("companies").where({
-      id: id,
+      ...(id ? { id: id } : {}),
+      ...(ownerId ? { ownerId: ownerId } : {}),
     });
   };
