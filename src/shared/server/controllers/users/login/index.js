@@ -1,9 +1,9 @@
-const { loginUseCase } = require("../../../use-cases/users/login");
-const knex = require("../../../../infra/database/index");
+const { loginUseCase } = require("../../../../../use-cases/users/login");
+const knex = require("../../../../../../infra/database/index");
 const requestSchema = require("./request-schema");
-const ValidationError = require("../../../shared/errors/validation-error");
-const NotFoundError = require("../../../shared/errors/not-found");
-const httpStatusCode = require("../../../constants/http-status-codes");
+const ValidationError = require("../../../../errors/validation-error");
+const NotFoundError = require("../../../../errors/not-found");
+const httpStatusCode = require("../../../../../constants/http-status-codes");
 const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {

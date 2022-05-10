@@ -1,9 +1,9 @@
-const knex = require("../../../../infra/database/index");
+const knex = require("../../../../../../infra/database/index");
 const requestSchema = require("./request-schema");
-const httpStatusCode = require("../../../constants/http-status-codes");
-const createJob = require("../../../use-cases/jobs/create");
+const httpStatusCode = require("../../../../../constants/http-status-codes");
+const createJob = require("../../../../../use-cases/jobs/create");
 
-const ValidationError = require("../../../shared/errors/validation-error");
+const ValidationError = require("../../../../errors/validation-error");
 
 const create = async (req, res) => {
   const validity = await requestSchema.isValid(req.body);

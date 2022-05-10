@@ -1,5 +1,5 @@
-const knex = require("../../../../infra/database/index");
-const listUseCase = require("../../../use-cases/jobs/list");
+const knex = require("../../../../../../infra/database/index");
+const listUseCase = require("../../../../../use-cases/jobs/list");
 
 const list = async (req, res) => {
   const dep = list.dependencies();

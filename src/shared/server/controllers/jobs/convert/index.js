@@ -1,8 +1,8 @@
 const requestSchema = require("./request-schema");
-const apiFinance = require("../../../services/hg-finance");
-const calculateIRDeduction = require("../../../use-cases/jobs/calculate-ir-deduction");
-const calculateINSSDeduction = require("../../../use-cases/jobs/calculate-inss-deduction");
-const ValidationError = require("../../../shared/errors/validation-error");
+const apiFinance = require("../../../../../services/hg-finance");
+const calculateIRDeduction = require("../../../../../use-cases/jobs/calculate-ir-deduction");
+const calculateINSSDeduction = require("../../../../../use-cases/jobs/calculate-inss-deduction");
+const ValidationError = require("../../../../errors/validation-error");
 
 const round = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
 

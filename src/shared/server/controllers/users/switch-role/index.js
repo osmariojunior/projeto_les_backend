@@ -1,12 +1,12 @@
 const requestSchema = require("./request-schema");
-const knex = require("../../../../infra/database/index");
-const ValidationError = require("../../../shared/errors/validation-error");
-const ForbiddenError = require("../../../shared/errors/forbidden-error");
-const NotFoundError = require("../../../shared/errors/not-found");
-const httpStatusCode = require("../../../constants/http-status-codes");
+const knex = require("../../../../../../infra/database/index");
+const ValidationError = require("../../../../errors/validation-error");
+const ForbiddenError = require("../../../../errors/forbidden-error");
+const NotFoundError = require("../../../../errors/not-found");
+const httpStatusCode = require("../../../../../constants/http-status-codes");
 const jwt = require("jsonwebtoken");
 
-const findCompany = require("../../../use-cases/companies/find");
+const findCompany = require("../../../../../use-cases/companies/find");
 
 const switchRole = async (req, res) => {
   const validity = await requestSchema.isValid(req.body);
