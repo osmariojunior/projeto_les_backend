@@ -1,7 +1,7 @@
-const knex = require("../../../../infra/database/index");
-const NotFoundError = require("../../../shared/errors/not-found");
-const httpStatusCode = require("../../../constants/http-status-codes");
-const findCompanies = require("../../../use-cases/companies/find");
+const knex = require("../../../../../infra/database/index");
+const NotFoundError = require("../../../../errors/not-found");
+const httpStatusCode = require("../../../../constants/http-status-codes");
+const findCompanies = require("../../../../use-cases/companies/find");
 
 const listCompanies = async (req, res) => {
   const dep = listCompanies.dependencies();
