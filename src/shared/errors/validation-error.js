@@ -5,9 +5,9 @@ class ValidationError extends BaseError {
   constructor(
     name,
     statusCode = httpStatusCodes.BAD_REQUEST,
-    description = "Bad Request."
+    message = "Bad Request."
   ) {
-    super(name, statusCode, description);
+    super(name, statusCode, message);
   }
 }
 
