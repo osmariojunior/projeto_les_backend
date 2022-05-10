@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/shared/server/index.js",
-    "debug": "nodemon src/shared/server/index.js"
+    "start": "node src/server/index.js",
+    "debug": "nodemon src/server/index.js"
   },
   "keywords": [],
   "author": "",

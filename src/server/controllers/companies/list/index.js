@@ -1,5 +1,5 @@
-const knex = require("../../../../../../infra/database/index");
-const listCompanies = require("../../../../../use-cases/companies/list");
+const knex = require("../../../../../infra/database/index");
+const listCompanies = require("../../../../use-cases/companies/list");
 const requestSchema = require("./request-schema");
 
 const list = async (req, res) => {

@@ -1,7 +1,7 @@
-const knex = require("../../../../../../infra/database/index");
+const knex = require("../../../../../infra/database/index");
 const requestSchema = require("./request-schema");
-const httpStatusCode = require("../../../../../constants/http-status-codes");
-const createJob = require("../../../../../use-cases/jobs/create");
+const httpStatusCode = require("../../../../constants/http-status-codes");
+const createJob = require("../../../../use-cases/jobs/create");
 
 const ValidationError = require("../../../../errors/validation-error");
 

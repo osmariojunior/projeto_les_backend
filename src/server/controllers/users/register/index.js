@@ -1,10 +1,10 @@
-const { createUseCase } = require("../../../../../use-cases/users/create");
-const { existsUseCase } = require("../../../../../use-cases/users/exists");
-const knex = require("../../../../../../infra/database/index");
+const { createUseCase } = require("../../../../use-cases/users/create");
+const { existsUseCase } = require("../../../../use-cases/users/exists");
+const knex = require("../../../../../infra/database/index");
 const requestSchema = require("./request-schema");
 const ValidationError = require("../../../../errors/validation-error");
 const ConflictError = require("../../../../errors/conflict");
-const httpStatusCode = require("../../../../../constants/http-status-codes");
+const httpStatusCode = require("../../../../constants/http-status-codes");
 
 const register = async (req, res) => {
   const validity = await requestSchema.isValid(req.body);

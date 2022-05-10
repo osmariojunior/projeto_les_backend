@@ -1,4 +1,4 @@
-const httpStatusCodes = require("../../constants/http-status-codes");
+const httpStatusCodes = require("../constants/http-status-codes");
 const BaseError = require("./base-error");
 
 class ValidationError extends BaseError {

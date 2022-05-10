@@ -1,12 +1,12 @@
-const knex = require("../../../../../../infra/database/index");
+const knex = require("../../../../../infra/database/index");
 const requestSchema = require("./request-schema");
-const httpStatusCode = require("../../../../../constants/http-status-codes");
+const httpStatusCode = require("../../../../constants/http-status-codes");
 
 const {
   existsUseCase: userExists,
-} = require("../../../../../use-cases/users/exists");
-const companyExists = require("../../../../../use-cases/companies/exists");
-const createCompany = require("../../../../../use-cases/companies/create");
+} = require("../../../../use-cases/users/exists");
+const companyExists = require("../../../../use-cases/companies/exists");
+const createCompany = require("../../../../use-cases/companies/create");
 
 const NotFoundError = require("../../../../errors/not-found");
 const ConflictError = require("../../../../errors/conflict");

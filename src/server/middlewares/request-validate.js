@@ -1,4 +1,4 @@
-const ValidationError = require("../../../shared/errors/validation-error");
+const ValidationError = require("../../errors/validation-error");
 const requestValidate = (schema) => async (req, res, next) => {
   try {
     await schema.validate(req);
