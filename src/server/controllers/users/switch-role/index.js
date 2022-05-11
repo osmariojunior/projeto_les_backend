@@ -7,6 +7,7 @@ const httpStatusCode = require("../../../../constants/http-status-codes");
 const jwt = require("jsonwebtoken");
 
 const findCompany = require("../../../../use-cases/companies/find");
+const listJobs = require("../../../../use-cases/jobs/list");
 
 const switchRole = async (req, res) => {
   const validity = await requestSchema.isValid(req.body);
@@ -38,15 +39,28 @@ const switchRole = async (req, res) => {
       expiresIn: 86400,
     }
   );
+
+  const jobs =
+    (await dep.listJobs({
+      ownerType: "COMPANY",
+      ownerId: company.id,
+      limit: Number.MAX_SAFE_INTEGER,
+    })) || [];
+
   res.status(httpStatusCode.OK).send({
-    auth: true,
-    token: token,
-    expires: 86400,
+    auth: {
+      token: token,
+      expires: 86400,
+    },
+    data: {
+      jobs: jobs,
+    },
   });
 };
 
 switchRole.dependencies = () => ({
   findCompany: findCompany(knex),
+  listJobs: listJobs(knex),
 });
 
 module.exports = switchRole;
