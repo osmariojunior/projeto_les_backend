@@ -12,6 +12,6 @@ const router = new Router();
 
 router.post("/", authentication, create);
 router.get("/", requestValidate(listRequestSchema), list);
-router.get("/convert", convert);
+router.post("/convert", convert);
 
 module.exports = router;
