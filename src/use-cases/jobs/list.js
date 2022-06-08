@@ -18,7 +18,7 @@ module.exports =
         "jobs.dollar_salary",
         "companies.name as company_name",
       ])
-      .innerJoin("companies", "jobs.owner_id", "companies.id")
+      .leftJoin("companies", "jobs.owner_id", "companies.id")
       .limit(limit)
       .offset(offset)
       .modify((queryBuilder) => {
