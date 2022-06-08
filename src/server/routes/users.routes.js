@@ -13,6 +13,6 @@ router.post("/login", requestValidate(loginRequestSchema), login);
 router.post("/register", register);
 
 router.post("/companies", authentication, switchRole);
-router.post("/jobs", authentication, listJobs);
+router.get("/jobs", authentication, listJobs);
 
 module.exports = router;
