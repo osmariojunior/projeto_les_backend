@@ -45,6 +45,12 @@ const login = async (req, res) => {
     data: {
       companies: companies,
       jobs: jobs,
+      user: {
+        name: user.first_name + " " + user.last_name,
+        nickname: user.nickname,
+        email: user.email,
+        id: user.id,
+      },
     },
   });
 };
