@@ -7,7 +7,7 @@ const ValidationError = require("../../../../errors/validation-error");
 const round = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
 
 const convert = async (req, res) => {
-  const validity = await requestSchema.isValid(req.body);
+  const validity = await requestSchema.isValid(req.query);
 
   if (!validity) {
     throw new ValidationError("Bad Request.");
